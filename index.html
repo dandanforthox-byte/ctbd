@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CTBD</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: #050505;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    text-align: center;
+}
+
+.kicker {
+    font-size: 11px;
+    letter-spacing: 0.45em;
+    opacity: 0.4;
+    margin-bottom: 35px;
+}
+
+h1 {
+    font-size: clamp(40px, 7vw, 90px);
+    line-height: 0.9;
+    letter-spacing: -0.06em;
+    margin: 0;
+    font-weight: 800;
+}
+
+.subtitle {
+    margin-top: 25px;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    opacity: 0.35;
+}
+
+button {
+    margin-top: 55px;
+    padding: 17px 38px;
+    background: #0d0d0d;
+    color: white;
+    border: 1px solid #444;
+    cursor: pointer;
+    font-size: 11px;
+    letter-spacing: 0.35em;
+}
+
+button:hover {
+    background: white;
+    color: black;
+}
+
+#status {
+    margin-top: 20px;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    opacity: 0.35;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="kicker">FROSKY / CTBD</div>
+
+    <h1>
+        CALMEST TIME<br>
+        BEFORE DISASTER
+    </h1>
+
+    <div class="subtitle">
+        there is nothing to explain
+    </div>
+
+    <button id="enter">
+        ENTER
+    </button>
+
+    <div id="status"></div>
+
+</div>
+
+<audio id="audio" src="audio.mp3"></audio>
+
+<script>
+
+const button = document.getElementById("enter");
+const audio = document.getElementById("audio");
+const status = document.getElementById("status");
+
+button.onclick = function() {
+
+    audio.play();
+
+    status.textContent = "PLAYING";
+
+    button.textContent = "LISTENING";
+
+};
+
+audio.onended = function() {
+
+    status.textContent = "END OF TRANSMISSION";
+
+    button.textContent = "REPLAY";
+
+};
+
+</script>
+
+</body>
+</html>
